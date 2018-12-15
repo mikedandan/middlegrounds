@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500, 900" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Middle Ground</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+
+        </div>
+        <div class="nav-content">
+            <h2 class="nav-title">Send Your Invite</h2>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="container1">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="text" type="text">
+                        <label for="event">Event Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="number" type="tel" class="validate">
+                        <label for="number">Cell Phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s4">
+                        <a class="btn-add btn-large halfway-fab waves-effect waves-light teal">
+                            <i class="material-icons">+</i>
+                        </a>
+                        <div>Add another person</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <div class="container1">
+        <button class="add_form_field">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+        <div><input type="text" name="mytext[]"></div>
+    </div> -->
+
+
+
+    <script>
+        $(document).ready(function () {
+            var max_fields = 10;
+            var wrapper = $(".container1");
+            var add_button = $(".btn-add");
+
+            var x = 1;
+            $(add_button).click(function (e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append('<div><input type="email" name="mytext[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
+                }
+                else {
+                    alert('You Reached the limits')
+                }
+            });
+
+            $(wrapper).on("click", ".delete", function (e) {
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+    </script>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+
+</html>
