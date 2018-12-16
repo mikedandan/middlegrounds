@@ -16,64 +16,73 @@
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Middle Ground</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
+            <a href="#"></a><img class="brand-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo">
+        </div>
 
+
+        <div class="nav-content">
+            <div class="row">
+                <h2 class="nav-title">Send Your Invite</h2>
+            </div>
         </div>
         <div class="nav-content">
-            <h2 class="nav-title">Send Your Invite</h2>
+            <div class="row">
+                <div class="col s3"></div>
+                <div class="col s2">
+                    <img class="icon-logo" src="./assets/images/sendicon2x.png" alt="middleGround-Logo1">
+                </div>
+                <div class="col s2">
+                    <img class="icon-logo" src="./assets/images/waiticon2x.png" alt="middleGround-Logo2">
+                </div>
+                <div class="col s2">
+                    <img class="icon-logo" src="./assets/images/mapicon2x.png" alt="middleGround-Logo3">
+                </div>
+                <div class="col s3"></div>
+            </div>
         </div>
     </nav>
-
-    <div class="row">
-
-        <form class="col s12">
+    <div class="container">
+        <form class="col s12 m4 center-align">
             <div class="row">
-                <div class="input-field col s4">
-                    <input id="text" type="text">
-                    <label for="event">Event Name</label>
+                <div class="input-field col s12 m4 center-align">
+                    <input placeholder="Event Name" id="text" type="text">
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s4">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+                <div class="input-field col s12 m4 center-align">
+                    <input placeholder="Email" id="email" type="email" class="validate">
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s4">
-                    <input id="number" type="tel" class="validate">
-                    <label for="number">Cell Phone</label>
+                <div class="input-field col s12 m4 center-align">
+                    <input placeholder="Phone Number" id="number" type="tel" class="validate">
                 </div>
             </div>
             <div class="container1"></div>
             <div class="row">
-                <div class="col s4">
+                <div class="col s12 m4 center-align">
                     <a class="btn-add btn-large halfway-fab waves-effect waves-light teal">
                         <i class="material-icons">+</i>
                     </a>
-                    <div>Add another person</div>
+                    <div style="color: white;">Add another person</div>
                 </div>
             </div>
+
+
+            <div class="row">
+                <h5 style="color: white;">Select the type of place to meet up</h5>
+                <div class="input-field col s12 m4 center-align">
+                    <input placeholder="Placeholder" id="text" type="text">
+                    <label for="place"></label>
+
+                </div>
+
+            </div>
         </form>
+
+
+        <button class="btn-large waves-effect waves-light " type="submit" name="action">Submit</button>
     </div>
-    <div class="row">
-        <h5>Select a place to meet up</h5>
-        <div class="input-field col s4">
-            <input placeholder="Placeholder" id="text" type="text">
-            <label for="place"></label>
-
-        </div>
-
-    </div>
-
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right"></i>
-    </button>
 
 
     <!-- <div class="container1">
@@ -94,7 +103,7 @@
                 e.preventDefault();
                 if (x < max_fields) {
                     x++;
-                    $(wrapper).prepend('<div><input type="email" name="mytext[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
+                    $(wrapper).prepend('<div><input placeholder="Email" id="email" type="email"[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
                 }
                 else {
                     alert('You Reached the limits')
