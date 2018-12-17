@@ -13,6 +13,9 @@ nav {
 .nav-content {
     text-align: center;
 }
+.main-content{
+    
+}
 /* .container1 {
         width: 100%;
         padding: 12px 20px;
@@ -83,6 +86,52 @@ nav {
         display:block;
         max-width:100%;
         width: 200px;
+    }
+    .row .submit-button{
+        display:block;
+        border-radius:15px;
+        background-color:#9DE1A6;
+    }
+    .footer {
+        background-color: #fff;
+        margin-bottom: 0;
+        padding: 30px 0;
+    }
+    h5 {
+        color: #fff;
+        font-size: 1.3em;
+        font-family: roboto;
+        font-weight: 700;
+    }
+    .deletePerson {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #F07153;
+    }
+    .deletePersonCircle img {
+        width: 20px;
+        display: block;
+        position: absolute;
+   
+    }
+    .checked-in {
+        border: solid white 3px;
+    }
+    .waiting-on {
+        border: 4px #9DE1A6 dotted;
+        padding: 3px;
+    }
+    .waiting-on-text {
+        color:#9de1a6;
+        display:block;
+    }
+    .divider {
+        height: 1px;
+        overflow: hidden;
+        background-color: transparent;
+        border: dashed 1px #9de1a6;
     }
     form {
         display: inline;
