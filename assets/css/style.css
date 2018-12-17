@@ -107,3 +107,26 @@ nav {
         top: 10px;
         color: #F07153;
     }
+    .deletePersonCircle img {
+        width: 20px;
+        display: block;
+        position: absolute;
+   
+    }
+    .checked-in {
+        border: solid white 3px;
+    }
+    .waiting-on {
+        border: 4px #9DE1A6 dotted;
+        padding: 3px;
+    }
+    .waiting-on-text {
+        color:#9de1a6;
+        display:block;
+    }
+    .divider {
+        height: 1px;
+        overflow: hidden;
+        background-color: transparent;
+        border: dashed 1px #9de1a6;
+    }
