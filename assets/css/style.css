@@ -8,6 +8,7 @@ body {
 }
 nav {
     background-color: #12858E;
+    box-shadow:none!important;
 }
 .nav-content {
     text-align: center;
@@ -39,22 +40,17 @@ nav {
     }
     
     input{
-        border: 1px solid #1c97f3;
-        width: 260px;
-        height: 40px;
-        margin-bottom:14px;
+        border-bottom:none!important;
        
     }
     .input-field {
-        width: 100%;
-        padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        border: 2px solid #9DE1A6;
+        border-radius: 15px;
         box-sizing: border-box;
         background-color: white;
-      }
+    }
     
     .delete{
         background-color: #fd1200;
@@ -70,4 +66,18 @@ nav {
     }
     .icon-logo {
         align-content: center;
+    }
+    .nav-content .row .page-title {
+        font-family: 'Roboto Slab', serif;
+        margin: 0;
+        padding: 0 0 30px;
+    }
+    .icon-img {
+        padding:12px;
+    }
+    .middleGround-logo{
+        margin:0 auto;
+        display:block;
+        max-width:100%;
+        width: 200px;
     }

@@ -7,41 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:500, 900" rel="stylesheet">
+    <!-- Google Fonts - Roboto and roboto slab-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:700" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a href="#"></a><img class="brand-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo">
+            <a href="#"></a>
+            <img class="middleGround-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo">
         </div>
 
 
+        
         <div class="nav-content">
-            <div class="row">
-                <h2 class="nav-title">Send Your Invite</h2>
+            <div class="row valign-wrapper">
+                <div class="col s1"></div>
+                <div class="col s3">
+                    <img class="responsive-img icon-img" src="./assets/images/sendicon2x.png" alt="middleGround-Logo1">
+                </div>
+                <div class="col s3">
+                    <img class="responsive-img icon-img" src="./assets/images/waiticon2x.png" alt="middleGround-Logo2">
+                </div>
+                <div class="col s3">
+                    <img class="responsive-img icon-img" src="./assets/images/mapicon2x.png" alt="middleGround-Logo3">
+                </div>
+                <div class="col s1"></div>
             </div>
         </div>
         <div class="nav-content">
-            <div class="row">
-                <div class="col s3"></div>
-                <div class="col s2">
-                    <img class="icon-logo" src="./assets/images/sendicon2x.png" alt="middleGround-Logo1">
+                <div class="row">
+                    <h1 class="nav-title page-title">Send Your Invite</h1>
                 </div>
-                <div class="col s2">
-                    <img class="icon-logo" src="./assets/images/waiticon2x.png" alt="middleGround-Logo2">
-                </div>
-                <div class="col s2">
-                    <img class="icon-logo" src="./assets/images/mapicon2x.png" alt="middleGround-Logo3">
-                </div>
-                <div class="col s3"></div>
             </div>
-        </div>
     </nav>
     <div class="container">
+        <div class="row">
         <form class="col s12 m4 center-align">
             <div class="row">
                 <div class="input-field col s12 m4 center-align">
@@ -79,7 +82,7 @@
 
             </div>
         </form>
-
+    </div>
 
         <button class="btn-large waves-effect waves-light " type="submit" name="action">Submit</button>
     </div>
@@ -92,7 +95,7 @@
 
 
 
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             var max_fields = 10;
             var wrapper = $(".container1");
@@ -114,7 +117,7 @@
                 e.preventDefault(); $(this).parent('div').remove(); x--;
             })
         });
-    </script>
+    </script> -->
 
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
