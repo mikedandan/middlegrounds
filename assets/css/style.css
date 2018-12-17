@@ -41,6 +41,9 @@ nav {
         cursor: pointer;
         border:1px solid #186dad;
     }
+    .page-footer{
+        background-color:#E6E6E6;
+    }
     
     input{
         border-bottom:none!important;
@@ -130,3 +133,9 @@ nav {
         background-color: transparent;
         border: dashed 1px #9de1a6;
     }
+    form {
+        display: inline;
+        align-items: center;
+        justify-content: center;
+    }
+   
