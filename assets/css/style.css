@@ -2,6 +2,7 @@ body {
     background-image: url("../images/background1@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height:100vh;
 }
 .jumbotron {
     text-align: center;
@@ -13,8 +14,8 @@ nav {
 .nav-content {
     text-align: center;
 }
-.main-content{
-    
+.col {
+    position: relative;
 }
 /* .container1 {
         width: 100%;
@@ -111,6 +112,7 @@ nav {
         width: 20px;
         display: block;
         position: absolute;
+        right:0;
    
     }
     .checked-in {
@@ -129,4 +131,19 @@ nav {
         overflow: hidden;
         background-color: transparent;
         border: dashed 1px #9de1a6;
+    }
+    .icon-font {
+        font-family: 'icomoon';
+        font-size: 3.5em;
+        color: #9de1a6;
+    }
+    .nav-icon-container {
+        margin-top: 40px;
+    }
+    span.icon-font.icon-font-active {
+        color:white;
+    }
+    .icon-font .icon-font-visited {
+        color:white;
+        opacity:.3;
     }
