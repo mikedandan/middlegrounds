@@ -1,21 +1,32 @@
+// document.addEventListener('DOMContentLoaded', function() {
+//     var elems = document.querySelectorAll('.parallax');
+//     var instances = M.Parallax.init(elems, options);
+//   });
 $(document).ready(function () {
     var max_fields = 10;
-    var wrapper = $(".container1");
-    var add_button = $(".btn-add");
+
 
     var x = 1;
-    $(add_button).click(function (e) {
+    $("#addPersonDiv").click(function (e) {
         e.preventDefault();
         if (x < max_fields) {
+            var addPerson = $("<div class='input-field col s12 m4 center-align newPersonDiv'>");
+            var newInput = $("<input placeholder='Phone Number or Email' type='text' class='validate'>");
+            // if you change the <a> tag to a <button> tag it works, but refreshes the page everytime you press it :(
+            var deleteBtn = $("<a class='deletePerson'>").html("<i class='material-icons'>delete_forever</i>");
+            addPerson.append(deleteBtn, newInput);
+            $("#addPeople").append(addPerson); //add input box
             x++;
-            $(wrapper).prepend('<div><input type="email" name="mytext[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
+
         }
         else {
             alert('You Reached the limits')
         }
     });
 
-    $(wrapper).on("click", ".delete", function (e) {
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+    $(document).on("click", ".deletePerson", function (e) {
+        e.preventDefault(); $(this).parent('div').remove();
+        x--;
+    });
 });
+

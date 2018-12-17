@@ -100,3 +100,10 @@ nav {
         font-family: roboto;
         font-weight: 700;
     }
+    .deletePerson {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #F07153;
+    }

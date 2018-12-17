@@ -56,19 +56,15 @@
                     </div>
                 </div>
                 <div class="row">
-                        <h5>Invite People</h5>
-                    <div class="input-field col s12 m4 center-align">
-                        <input placeholder="Phone Number or Email"  type="text" class="validate">
+                    <h5>Invite People</h5>
+                    <div id="addPeople">
+                        <div class="input-field col s12 m4 center-align">
+                            <input placeholder="Phone Number or Email" type="text" class="validate">
+                        </div>
+
+                        
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m4 center-align">
-                        <input placeholder="Phone Number or Email"  type="text" class="validate">
-                    </div>
-                </div>
-                <div class="container1"></div>
-                <div class="row">
-                    <div class="col s12 m4 center-align">
+                    <div class="col s12 m4 center-align" id="addPersonDiv">
                         <a class="btn-floating">
                             <i class="material-icons">add</i>
                         </a>
@@ -76,7 +72,7 @@
                     </div>
                 </div>
 
-<div class="divider"></div>
+                <div class="divider"></div>
                 <div class="row">
                     <h5 style="color: white;">Select the type of place to meet up</h5>
                     <div class="input-field col s12 m4 center-align">
@@ -84,8 +80,9 @@
                         <label for="place"></label>
 
                     </div>
-
                 </div>
+
+
             </form>
         </div>
 
@@ -93,7 +90,7 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <a class="waves-effect btn-large submit-button"  name="action">
+                <a class="waves-effect btn-large submit-button" name="action">
                     Sent Invite</a>
 
             </div>
@@ -101,36 +98,7 @@
     </div>
 
 
-    <!-- <div class="container1">
-        <button class="add_form_field">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
-        <div><input type="text" name="mytext[]"></div>
-    </div> -->
 
-
-
-    <!-- <script>
-        $(document).ready(function () {
-            var max_fields = 10;
-            var wrapper = $(".container1");
-            var add_button = $(".btn-add");
-
-            var x = 1;
-            $(add_button).click(function (e) {
-                e.preventDefault();
-                if (x < max_fields) {
-                    x++;
-                    $(wrapper).prepend('<div><input placeholder="Email" id="email" type="email"[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
-                }
-                else {
-                    alert('You Reached the limits')
-                }
-            });
-
-            $(wrapper).on("click", ".delete", function (e) {
-                e.preventDefault(); $(this).parent('div').remove(); x--;
-            })
-        });
-    </script> -->
 
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
