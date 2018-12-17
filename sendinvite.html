@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts - Roboto and roboto slab-->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:700" rel="stylesheet">
+
+    <!-- Material icons CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
@@ -21,7 +24,7 @@
         </div>
 
 
-        
+
         <div class="nav-content">
             <div class="row valign-wrapper">
                 <div class="col s1"></div>
@@ -38,53 +41,63 @@
             </div>
         </div>
         <div class="nav-content">
-                <div class="row">
-                    <h1 class="nav-title page-title">Send Your Invite</h1>
-                </div>
+            <div class="row">
+                <h1 class="nav-title page-title">Send Your Invite</h1>
             </div>
+        </div>
     </nav>
-    <div class="container">
+    <div class="container main-content">
         <div class="row">
-        <form class="col s12 m4 center-align">
-            <div class="row">
-                <div class="input-field col s12 m4 center-align">
-                    <input placeholder="Event Name" id="text" type="text">
+            <form class="col s12 m4 center-align">
+                <div class="row">
+                    <h5>Event Name</h5>
+                    <div class="input-field col s12 m4 center-align">
+                        <input placeholder="Event Name" id="text" type="text">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m4 center-align">
-                    <input placeholder="Email" id="email" type="email" class="validate">
+                <div class="row">
+                        <h5>Invite People</h5>
+                    <div class="input-field col s12 m4 center-align">
+                        <input placeholder="Phone Number or Email"  type="text" class="validate">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m4 center-align">
-                    <input placeholder="Phone Number" id="number" type="tel" class="validate">
+                <div class="row">
+                    <div class="input-field col s12 m4 center-align">
+                        <input placeholder="Phone Number or Email"  type="text" class="validate">
+                    </div>
                 </div>
-            </div>
-            <div class="container1"></div>
-            <div class="row">
-                <div class="col s12 m4 center-align">
-                    <a class="btn-add btn-large halfway-fab waves-effect waves-light teal">
-                        <i class="material-icons">+</i>
-                    </a>
-                    <div style="color: white;">Add another person</div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <h5 style="color: white;">Select the type of place to meet up</h5>
-                <div class="input-field col s12 m4 center-align">
-                    <input placeholder="Placeholder" id="text" type="text">
-                    <label for="place"></label>
-
+                <div class="container1"></div>
+                <div class="row">
+                    <div class="col s12 m4 center-align">
+                        <a class="btn-floating">
+                            <i class="material-icons">add</i>
+                        </a>
+                        <span>Add another person</span>
+                    </div>
                 </div>
 
-            </div>
-        </form>
+<div class="divider"></div>
+                <div class="row">
+                    <h5 style="color: white;">Select the type of place to meet up</h5>
+                    <div class="input-field col s12 m4 center-align">
+                        <input placeholder="What do you want the placd to have?" id="text" type="text">
+                        <label for="place"></label>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
     </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <a class="waves-effect btn-large submit-button"  name="action">
+                    Sent Invite</a>
 
-        <button class="btn-large waves-effect waves-light " type="submit" name="action">Submit</button>
+            </div>
+        </div>
     </div>
 
 
