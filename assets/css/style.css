@@ -17,17 +17,6 @@ nav {
 .col {
     position: relative;
 }
-/* .container1 {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        background-color: white;
-    } */
-    
     .button-add
     {
         background-color: #1c97f3;
@@ -97,6 +86,12 @@ nav {
         background-color: #fff;
         margin-bottom: 0;
         padding: 30px 0;
+    }
+    .page-footer {
+        background-color: #DEE0DD;
+    }
+    h2 {
+        color: #fff;
     }
     h5 {
         color: #fff;
