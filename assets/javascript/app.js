@@ -1,3 +1,13 @@
+var config = {
+    apiKey: "AIzaSyAEOkd5JKDXjNJ5uwCIgbxasAWVf4hmgJM",
+    authDomain: "meetup-c5cfa.firebaseapp.com",
+    databaseURL: "https://meetup-c5cfa.firebaseio.com",
+    projectId: "meetup-c5cfa",
+    storageBucket: "meetup-c5cfa.appspot.com",
+    messagingSenderId: "738857759873"
+  };
+  firebase.initializeApp(config);
+
 $(document).ready(function () {
     var max_fields = 10;
 
