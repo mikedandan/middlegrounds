@@ -177,3 +177,7 @@ nav {
       transform: rotateZ(360deg); 
     }
   }
+/* Google Map Styles */
+#map {
+    height:485px;
+    width:100%;}
