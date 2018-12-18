@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Select a map</title>
+    <title>Send Invite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts - Roboto and roboto slab-->
@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-    
 </head>
 
 <body>
@@ -32,47 +31,21 @@
         <div class="nav-content">
             <div class="row valign-wrapper nav-icon-container">
                 <div class="col s1"></div>
-                <div class="col s3">
-                    
-                    <span class="icon-font icon-font-visited">s</span>
-                </div>
-                <div class="col s3">
-                    <span class="icon-font icon-font-visited">d</span>
-                </div>
-                <div class="col s3">
-                    <span class="icon-font icon-font-active">a</span>
-                </div>
                 <div class="col s1"></div>
             </div>
         </div>
         <div class="nav-content">
             <div class="row">
-                <h1 class="nav-title page-title">Select Middle Ground</h1>
+                <h1 class="nav-title page-title">Meeting Invitation</h1>
             </div>
         </div>
     </nav>
-    <!-- End of header -->
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-        // The location of currentPos
-        var currentPos = {lat: 33.6405, lng: -117.8443};
-        // The map, centered at currentPos
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 10, center: currentPos});
-        // The marker, positioned at currentPos
-        var marker = new google.maps.Marker({position: currentPos, map: map});
-        }
-    </script>
-
-    
-    <script type="text/javascript" src="./assets/javascript/app.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&callback=initMap">
-    </script>
 </body>
 
-
-</html>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <h6 class="white-text center">© 2018 All Rights Reserved. Copyright Freeballers | Middle.Grounds</h6>
+            </div>
+        </div>
+    </footer>
