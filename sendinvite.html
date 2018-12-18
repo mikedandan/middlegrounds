@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project 1</title>
+    <title>Send Invite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts - Roboto and roboto slab-->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:700" rel="stylesheet">
+    <!-- Custom font CSS -->
+    <link rel="stylesheet" href="assets/css/font.css">
+
+    <!-- Material icons CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
@@ -23,16 +28,17 @@
 
 
         <div class="nav-content">
-            <div class="row valign-wrapper">
+            <div class="row valign-wrapper nav-icon-container">
                 <div class="col s1"></div>
                 <div class="col s3">
-                    <img class="responsive-img icon-img" src="./assets/images/sendicon2x.png" alt="middleGround-Logo1">
+                    
+                    <span class="icon-font icon-font-active">s</span>
                 </div>
                 <div class="col s3">
-                    <img class="responsive-img icon-img" src="./assets/images/waiticon2x.png" alt="middleGround-Logo2">
+                    <span class="icon-font">d</span>
                 </div>
                 <div class="col s3">
-                    <img class="responsive-img icon-img" src="./assets/images/mapicon2x.png" alt="middleGround-Logo3">
+                    <span class="icon-font">a</span>
                 </div>
                 <div class="col s1"></div>
             </div>
@@ -43,86 +49,62 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+
+<!-- End of header -->
+
+    <div class="container main-content">
         <div class="row">
             <form class="col s12 m12 center-align">
                 <div class="row">
-                    <div class="input-field col s12 m5 center-align offset-m4 l8 offset-l2">
+                    <h5>Event Name</h5>
+                    <div class="input-field col s12 m12 center-align">
                         <input placeholder="Event Name" id="text" type="text">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12 m5 center-align offset-m4 l8 offset-l2">
-                        <input placeholder="Email" id="email" type="email" class="validate">
+                    <h5>Invite People</h5>
+                    <div id="addPeople">
+                        <div class="input-field col s12 m12 center-align">
+                            <input placeholder="Phone Number or Email" type="text" class="validate">
+                        </div>
+
+
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m5 center-align offset-m4 l8 offset-l2">
-                        <input placeholder="Phone Number" id="number" type="tel" class="validate">
-                    </div>
-                </div>
-                <div class="row" >
-                    <div class="col s12 m4 offset-m4 l6 offset-l3" id="test">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m4 offset-m4 l6 offset-l3">
-                        <a class="btn-add btn-large halfway-fab waves-effect waves-light teal">
-                            <i class="material-icons">+</i>
+                    <div class="col s12 m12 center-align" id="addPersonDiv">
+                        <a class="btn-floating">
+                            <i class="material-icons">add</i>
                         </a>
-                        <div style="color: white;">Add another person</div>
+                        <span class="white-text">Add another person</span>
                     </div>
                 </div>
 
-
+                <div class="divider"></div>
                 <div class="row">
                     <h5 style="color: white;">Select the type of place to meet up</h5>
-                    <div class="input-field col s12 m5 center-align offset-m4 l8 offset-l2">
-                        <input placeholder="Placeholder" id="text" type="text">
+                    <div class="input-field col s12 m12 center-align">
+                        <input placeholder="What do you want the place to have?" id="text" type="text">
                         <label for="place"></label>
+
                     </div>
                 </div>
 
-                <div class="col s12 m4 offset-m4 l8 offset-l2">
-                    <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
-                </div>
-            </form>
 
+            </form>
         </div>
 
     </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <a class="waves-effect btn-large submit-button" name="action">
+                    Sent Invite</a>
+
+            </div>
+        </div>
+    </div>
 
 
-    <!-- <div class="container1">
-        <button class="add_form_field">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
-        <div><input type="text" name="mytext[]"></div>
-    </div> -->
 
-
-
-    <!-- <script>
-        $(document).ready(function () {
-            var max_fields = 10;
-            var wrapper = $(".container1");
-            var add_button = $(".btn-add");
-
-            var x = 1;
-            $(add_button).click(function (e) {
-                e.preventDefault();
-                if (x < max_fields) {
-                    x++;
-                    $(wrapper).prepend('<div><input placeholder="Email" id="email" type="email"[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
-                }
-                else {
-                    alert('You Reached the limits')
-                }
-            });
-
-            $(wrapper).on("click", ".delete", function (e) {
-                e.preventDefault(); $(this).parent('div').remove(); x--;
-            })
-        });
-    </script> -->
 
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>

@@ -2,6 +2,7 @@ body {
     background-image: url("../images/background1@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height:100vh;
 }
 .jumbotron {
     text-align: center;
@@ -13,17 +14,9 @@ nav {
 .nav-content {
     text-align: center;
 }
-/* .container1 {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        background-color: white;
-    } */
-    
+.col {
+    position: relative;
+}
     .button-add
     {
         background-color: #1c97f3;
@@ -37,6 +30,9 @@ nav {
         margin: 4px 2px;
         cursor: pointer;
         border:1px solid #186dad;
+    }
+    .page-footer{
+        background-color:#E6E6E6;
     }
     
     input{
@@ -81,8 +77,102 @@ nav {
         max-width:100%;
         width: 200px;
     }
+    .row .submit-button{
+        display:block;
+        border-radius:15px;
+        background-color:#9DE1A6;
+    }
+    .footer {
+        background-color: #fff;
+        margin-bottom: 0;
+        padding: 30px 0;
+    }
+    .page-footer {
+        background-color: #DEE0DD;
+    }
+    h2 {
+        color: #fff;
+    }
+    h5 {
+        color: #fff;
+        font-size: 1.3em;
+        font-family: roboto;
+        font-weight: 700;
+    }
+    .deletePerson {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #F07153;
+    }
+    .deletePersonCircle img {
+        width: 20px;
+        display: block;
+        position: absolute;
+        right:0;
+   
+    }
+    .checked-in {
+        border: solid white 3px;
+    }
+    .waiting-on {
+        /* border: 4px #9DE1A6 dotted; */
+        padding: 3px;
+    }
+    .waiting-on-text {
+        color:#9de1a6;
+        display:block;
+    }
+    .divider {
+        height: 1px;
+        overflow: hidden;
+        background-color: transparent;
+        border: dashed 1px #9de1a6;
+    }
+    .icon-font {
+        font-family: 'icomoon';
+        font-size: 3.5em;
+        color: #9de1a6;
+    }
+    .nav-icon-container {
+        margin-top: 40px;
+    }
+    span.icon-font.icon-font-active {
+        color:white;
+    }
+    span.icon-font.icon-font-visited {
+        color:white;
+        opacity:.3;
+    }
     form {
         display: inline;
         align-items: center;
         justify-content: center;
     }
+/* circle border test    */
+.circle-border {
+    position: relative;
+
+    border-radius: 50%;
+  }
+  
+  .circle-border:before {
+    position: absolute;
+    content: '';
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    border: 4px #9DE1A6 dotted;
+    top: -6px;
+    left: -6px;
+    border-radius: inherit;
+    animation: spin 10s linear infinite;
+}
+
+
+  
+  @keyframes spin { 
+    100% { 
+      transform: rotateZ(360deg); 
+    }
+  }
