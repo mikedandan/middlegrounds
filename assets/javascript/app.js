@@ -13,7 +13,50 @@ var database = firebase.database();
 
 // Capture Button Click
 
+    var name = $("#inputName").val();
+    var eventName = $("#inputEvent").val();
+
+    // var people = $(".addPerson").val();
+
+    var people = $(".addPerson");
+
+    for (var i = 0; i < people.length; i++) {
+        console.log($(people[i]).val());
+    }
+
+    var meetPlace = $("#inputPlace").val();
+
+    // Console log each of the user inputs to confirm we are receiving them correctly
+    // console.log(name, eventName, people, meetPlace);
+    // console.log(people);
+
+    // database.ref().push({
+    //     name: name,
+    //     eventName: eventName,
+    //     people: people,
+    //     meetPlace: meetPlace
+    // });
+});
 $(document).ready(function () {
+    console.log("hey")
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend({
+        lat: 40.712776,
+        lng: -74.005974
+    })
+    bounds.extend({
+        lat: 37.774929,
+        lng: -122.419418
+    })
+    bounds.extend({
+        lat: 23.634501,
+        lng: -102.552788
+    })  
+    console.log("mid point:",bounds.getCenter().lat(),bounds.getCenter().lng());
+    var midpoint = [bounds.getCenter().lat(),bounds.getCenter().lng()]
+    console.log("Mid point: " + midpoint);
+
+
 
     // Database Variables:
     // All new users will be added to this array
@@ -27,7 +70,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (x < max_fields) {
             var addPerson = $("<div class='input-field col s12 m12 center-align newPersonDiv'>");
-            var newInput = $("<input placeholder='Phone Number or Email' type='text' class='addPerson'>");
+            var newInput = $("<input placeholder='Phone Number or Email' type='text' class='validate addPerson'>");
             // if you change the <a> tag to a <button> tag it works, but refreshes the page everytime you press it :(
             var deleteBtn = $("<a class='deletePerson'>").html("<i class='material-icons'>delete_forever</i>");
             addPerson.append(deleteBtn, newInput);
