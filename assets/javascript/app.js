@@ -64,14 +64,15 @@ $(document).ready(function () {
             console.log(elem)
             meetPlace.push($(elem).val());
         })
-        // var name = $("#inputName").val();
+        var name = $("#inputName").val();
         var eventName = $("#inputEvent").val();
         // var people = $(".addPerson").val();
         // var meetPlace = $("#inputPlace").val();
         // Console log each of the user inputs to confirm we are receiving them correctly
-        console.log(eventName, allPeople, meetPlace);
+        console.log(name, eventName, allPeople, meetPlace);
         console.log("run")
         database.ref().push({
+            name: name,
             eventName: eventName,
             allPeople: allPeople,
             meetPlace: meetPlace
