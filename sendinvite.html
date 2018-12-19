@@ -16,6 +16,7 @@
     <!-- Material icons CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
             <div class="row valign-wrapper nav-icon-container">
                 <div class="col s1"></div>
                 <div class="col s3">
-                    
+
                     <span class="icon-font icon-font-active">s</span>
                 </div>
                 <div class="col s3">
@@ -50,22 +51,22 @@
         </div>
     </nav>
 
-<!-- End of header -->
+    <!-- End of header -->
 
     <div class="container main-content">
         <div class="row">
-            <form class="col s12 m12 center-align">
+            <form class="col s12 m12 center-align" method="POST" id="sendForm">
                 <div class="row">
                     <h5>Event Name</h5>
                     <div class="input-field col s12 m12 center-align">
-                        <input placeholder="Event Name" id="text" type="text">
+                        <input placeholder="Event Name" id="inputEvent" type="text" name="event-name">
                     </div>
                 </div>
                 <div class="row">
                     <h5>Invite People</h5>
                     <div id="addPeople">
                         <div class="input-field col s12 m12 center-align">
-                            <input placeholder="Phone Number or Email" type="text" class="validate">
+                            <input placeholder="Phone Number or Email" type="text" class="validate" id="addPerson" name="person-invited">
                         </div>
 
 
@@ -82,7 +83,7 @@
                 <div class="row">
                     <h5 style="color: white;">Select the type of place to meet up</h5>
                     <div class="input-field col s12 m12 center-align">
-                        <input placeholder="What do you want the place to have?" id="text" type="text">
+                        <input placeholder="What do you want the place to have?" id="inputPlace" type="text">
                         <label for="place"></label>
 
                     </div>
@@ -96,8 +97,8 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <a class="waves-effect btn-large submit-button" name="action">
-                    Sent Invite</a>
+                <button id="sendInvite" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
+                    Sent Invite</button>
 
             </div>
         </div>

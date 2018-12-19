@@ -92,6 +92,7 @@ nav {
     }
     h2 {
         color: #fff;
+        font-family: roboto slab;
     }
     h5 {
         color: #fff;
@@ -176,3 +177,7 @@ nav {
       transform: rotateZ(360deg); 
     }
   }
+/* Google Map Styles */
+#map {
+    height:485px;
+    width:100%;}
