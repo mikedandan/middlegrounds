@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Middle Ground Landing Page</title>
+    <title>Project 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts - Roboto and roboto slab-->
@@ -16,33 +16,75 @@
     <!-- Material icons CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 </head>
 
 <body>
 
     <div class="container">
-        <img class="middleGround-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo" style="margin-bottom: 50px;">
-        <section></section>
         <div class="row">
-            <h5>Welcome to Middle Ground!</h5>
+            <div class="col s4">
+                <img class="middleGround-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo"
+                    style="margin-bottom: 50px;">
+                <section></section>
+                <div class="col s1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <h2>Find a middle ground between you and your friends and track their location.</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s12">
+                <div class="input-field col s12 m12 center-align">
+                    <input placeholder="What's your name?" id="inputName" type="text" name="event-name">
+                </div>
+                <div class="col s12 m12 center-align">
+                        <button id="sendInvite" class="waves-effect btn-large submit-button center-align" name="action" type="submit"
+                            value="submit">
+                            Sent Invite</button>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </section>
+
     </div>
 
-
+    <!-- Below the fold -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="container">
-        <div class="row">
-            <div class="col s4 m4">Pick a "Middle Ground" - A mutually decided location that is as close to the middle of everyones location as physically possible</div>
+        <div class="col s12">
+            <div class="row">
+                <img class="map3icon.png" src="assets/images/map3icon.png" alt="map3icon.png">
+                <h5>Pick a middle ground or meet-up location</h5>
+            </div>
+            <div class="row">
+                <img class="map3icon.png" src="assets/images/map3icon.png" alt="map3icon.png">
+                <h5> Pick a few friends to invite</h5>
+            </div>
 
-            <div class="col s4 m4">Select a few friends to invite</div>
+            <div class="row">
+                <img class="map3icon.png" src="assets/images/map3icon.png" alt="map3icon.png">
+                <h5>Send and invite to your friends</h5>
+            </div>
 
-            <div class="col s4 m4">Send an invite to your friends</div>
 
-        <div>
-        <div class="row">
-            <div class="col s12 m6">Track your friends and see their ETA!</div>
+            <div class="row">
+                <img class="map3icon.png" src="assets/images/map3icon.png" alt="map3icon.png">
+                <h5>Track your friends and see their eta</h5>
+            </div>
 
-            <div class="col s12 m6">Enjoy your Middle Ground!</div>
+            <div class="row">
+                <img class="map3icon.png" src="assets/images/map3icon.png" alt="map3icon.png">
+                <h5>Enjoy your company!</h5>
+            </div>
         </div>
 
     </div>
@@ -66,7 +108,7 @@
 <footer class="page-footer">
     <div class="footer-copyright">
         <div class="container">
-            <h6 class="white-text center">© 2018 All Rights Reserved. Copyright Freeballers | Middle.Ground</h6>
+            <h6 class="white-text center">© 2018 All Rights Reserved. Copyright Freeballers | Middle.Grounds</h6>
         </div>
     </div>
 </footer>
