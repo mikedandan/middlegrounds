@@ -45,34 +45,58 @@ $(document).ready(function () {
         x--;
     });
     // Add new users to the allPeople array
-    $(function () { //shorthand document.ready function
-        $('#login_form').on('submit', function (e) { //use on if jQuery 1.7+
-            e.preventDefault();  //prevent form from submitting
-            var data = $("#login_form :input").serializeArray();
-            console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+    // $(function () { //shorthand document.ready function
+    //     $('#login_form').on('submit', function (e) { //use on if jQuery 1.7+
+    //         e.preventDefault();  //prevent form from submitting
+    //         var data = $("#login_form :input").serializeArray();
+    //         console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+    //     });
+    // });
+    $("#initInvite").on("click", function (event) {
+        console.log("working")
+        event.preventDefault();
+        var name = $("#inputName").val();
+        console.log(name);
+
+        var newKey = database.ref().push({
+            name: name,
         });
+
+        console.log(newKey.key);
+        window.location.assign("./sendinvite.html?key=" + newKey.key);
+
+
+
     });
+
     $("#sendInvite").on("click", function (event) {
         event.preventDefault();
         // var arr = [];
         // Capture User Inputs and store them into variables
-        $(".addPerson").each(function(i, elem) {
+        $(".addPerson").each(function (i, elem) {
             console.log(elem)
             allPeople.push($(elem).val());
         })
-        $("#inputPlace").each(function(i, elem) {
+        $("#inputPlace").each(function (i, elem) {
             console.log(elem)
             meetPlace.push($(elem).val());
-        })
-        var name = $("#inputName").val();
+        });
+
+        var href = window.location.href;
+
+        // console.log(href);
+        var url = new URL(href);
+        var key = url.searchParams.get("key");
+        console.log(key);
+
         var eventName = $("#inputEvent").val();
         // var people = $(".addPerson").val();
         // var meetPlace = $("#inputPlace").val();
         // Console log each of the user inputs to confirm we are receiving them correctly
-        console.log(name, eventName, allPeople, meetPlace);
+        console.log(eventName, allPeople, meetPlace);
         console.log("run")
-        database.ref().push({
-            name: name,
+        database.ref(key).update({
+            // name: name,
             eventName: eventName,
             allPeople: allPeople,
             meetPlace: meetPlace
