@@ -1,3 +1,36 @@
+var config = {
+    apiKey: "AIzaSyAEOkd5JKDXjNJ5uwCIgbxasAWVf4hmgJM",
+    authDomain: "meetup-c5cfa.firebaseapp.com",
+    databaseURL: "https://meetup-c5cfa.firebaseio.com",
+    projectId: "meetup-c5cfa",
+    storageBucket: "meetup-c5cfa.appspot.com",
+    messagingSenderId: "738857759873"
+};
+firebase.initializeApp(config);
+
+// Assign the reference to the database to a variable named 'database'
+var database = firebase.database();
+
+// Capture Button Click
+$("#sendInvite").on("click", function (event) {
+    event.preventDefault();
+    // Capture User Inputs and store them into variables
+
+    var name = $("#inputName").val();
+    var eventName = $("#inputEvent").val();
+    var people = $("#addPerson").val();
+    var meetPlace = $("#inputPlace").val();
+
+    // Console log each of the user inputs to confirm we are receiving them correctly
+    console.log(name, eventName, people, meetPlace);
+
+    database.ref().push({
+        name: name,
+        eventName: eventName,
+        people: people,
+        meetPlace: meetPlace
+    });
+});
 $(document).ready(function () {
 
     // Database Variables:
