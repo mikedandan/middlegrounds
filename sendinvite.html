@@ -54,23 +54,23 @@
 
     <div class="container main-content">
         <div class="row">
-            <form class="col s12 m4 center-align">
+            <form class="col s12 m12 center-align" method="POST" id="sendForm">
                 <div class="row">
                     <h5>Event Name</h5>
-                    <div class="input-field col s12 m4 center-align">
-                        <input placeholder="Event Name" id="text" type="text">
+                    <div class="input-field col s12 m12 center-align">
+                        <input placeholder="Event Name" id="text" type="text" name="event-name">
                     </div>
                 </div>
                 <div class="row">
                     <h5>Invite People</h5>
                     <div id="addPeople">
-                        <div class="input-field col s12 m4 center-align">
-                            <input placeholder="Phone Number or Email" type="text" class="validate">
+                        <div class="input-field col s12 m12 center-align">
+                            <input placeholder="Phone Number or Email" type="text" class="validate" name="person-invited">
                         </div>
 
 
                     </div>
-                    <div class="col s12 m4 center-align" id="addPersonDiv">
+                    <div class="col s12 m12 center-align" id="addPersonDiv">
                         <a class="btn-floating">
                             <i class="material-icons">add</i>
                         </a>
@@ -81,8 +81,8 @@
                 <div class="divider"></div>
                 <div class="row">
                     <h5 style="color: white;">Select the type of place to meet up</h5>
-                    <div class="input-field col s12 m4 center-align">
-                        <input placeholder="What do you want the placd to have?" id="text" type="text">
+                    <div class="input-field col s12 m12 center-align">
+                        <input placeholder="What do you want the place to have?" id="text" type="text">
                         <label for="place"></label>
 
                     </div>
@@ -96,8 +96,8 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <a class="waves-effect btn-large submit-button" name="action">
-                    Sent Invite</a>
+                <button id="sendInvite" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
+                    Sent Invite</button>
 
             </div>
         </div>
