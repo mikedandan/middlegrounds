@@ -32,6 +32,11 @@ $("#sendInvite").on("click", function (event) {
     });
 });
 $(document).ready(function () {
+
+    // Database Variables:
+    // All new users will be added to this array
+    var allPeople = []
+
     var max_fields = 10;
 
 
@@ -57,4 +62,13 @@ $(document).ready(function () {
         e.preventDefault(); $(this).parent('div').remove();
         x--;
     });
+    // Add new users to the allPeople array
+    $(function() { //shorthand document.ready function
+    $('#login_form').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        var data = $("#login_form :input").serializeArray();
+        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+    });
 });
+});
+

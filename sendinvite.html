@@ -55,18 +55,26 @@
 
     <div class="container main-content">
         <div class="row">
-            <form class="col s12 m12 center-align">
+            <form class="col s12 m12 center-align" method="POST" id="sendForm">
                 <div class="row">
                     <h5>Event Name</h5>
                     <div class="input-field col s12 m12 center-align">
+<<<<<<< HEAD
+                        <input placeholder="Event Name" id="text" type="text" name="event-name">
+=======
                         <input placeholder="Event Name" id="inputEvent" type="text">
+>>>>>>> 2941762f31753011558a7164ce2ff798f9e33384
                     </div>
                 </div>
                 <div class="row">
                     <h5>Invite People</h5>
                     <div id="addPeople">
                         <div class="input-field col s12 m12 center-align">
+<<<<<<< HEAD
+                            <input placeholder="Phone Number or Email" type="text" class="validate" name="person-invited">
+=======
                             <input placeholder="Phone Number or Email" type="text" id="addPerson" class="validate">
+>>>>>>> 2941762f31753011558a7164ce2ff798f9e33384
                         </div>
 
 
@@ -97,8 +105,8 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <a class="waves-effect btn-large submit-button" name="action" id="sendInvite">
-                    Sent Invite</a>
+                <button id="sendInvite" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
+                    Sent Invite</button>
 
             </div>
         </div>
