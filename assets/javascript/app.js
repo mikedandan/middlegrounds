@@ -12,9 +12,6 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // Capture Button Click
-$("#sendInvite").on("click", function (event) {
-    event.preventDefault();
-    // Capture User Inputs and store them into variables
 
     var name = $("#inputName").val();
     var eventName = $("#inputEvent").val();
@@ -64,7 +61,7 @@ $(document).ready(function () {
     // Database Variables:
     // All new users will be added to this array
     var allPeople = []
-
+    var meetPlace = []
     var max_fields = 10;
 
 
@@ -91,12 +88,38 @@ $(document).ready(function () {
         x--;
     });
     // Add new users to the allPeople array
-    $(function() { //shorthand document.ready function
-    $('#login_form').on('submit', function(e) { //use on if jQuery 1.7+
-        e.preventDefault();  //prevent form from submitting
-        var data = $("#login_form :input").serializeArray();
-        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+    $(function () { //shorthand document.ready function
+        $('#login_form').on('submit', function (e) { //use on if jQuery 1.7+
+            e.preventDefault();  //prevent form from submitting
+            var data = $("#login_form :input").serializeArray();
+            console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+        });
     });
-});
+    $("#sendInvite").on("click", function (event) {
+        event.preventDefault();
+        // var arr = [];
+        // Capture User Inputs and store them into variables
+        $(".addPerson").each(function(i, elem) {
+            console.log(elem)
+            allPeople.push($(elem).val());
+        })
+        $("#inputPlace").each(function(i, elem) {
+            console.log(elem)
+            meetPlace.push($(elem).val());
+        })
+        var name = $("#inputName").val();
+        var eventName = $("#inputEvent").val();
+        // var people = $(".addPerson").val();
+        // var meetPlace = $("#inputPlace").val();
+        // Console log each of the user inputs to confirm we are receiving them correctly
+        console.log(name, eventName, allPeople, meetPlace);
+        console.log("run")
+        database.ref().push({
+            name: name,
+            eventName: eventName,
+            allPeople: allPeople,
+            meetPlace: meetPlace
+        });
+    });
 });
 
