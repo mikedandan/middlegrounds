@@ -151,6 +151,9 @@ nav {
         align-items: center;
         justify-content: center;
     }
+    .container {
+        text-align: center;
+    }
 /* circle border test    */
 .circle-border {
     position: relative;
