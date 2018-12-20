@@ -132,7 +132,7 @@ $(document).ready(function () {
         var key = url.searchParams.get("key");
         console.log(key);
 
-        var eventName = $("#inputEvent").val();
+        var eventName = $(".inputEvent").val();
         // var people = $(".addPerson").val();
         // var meetPlace = $("#inputPlace").val();
         // Console log each of the user inputs to confirm we are receiving them correctly
