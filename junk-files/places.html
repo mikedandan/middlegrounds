@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Place Searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+<head>
+  <title>Place Searches</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    
+      
+  
       var map;
       var infowindow;
-
+  
       function initMap() {
-        var UCIlocation = {lat: 33.6405, lng: -117.8443};
-
+        var bounds = new google.maps.LatLngBounds();
+  bounds.extend({
+      lat: 40.712776,
+      lng: -74.005974
+  })
+  bounds.extend({
+      lat: 37.774929,
+      lng: -122.419418
+  })
+  bounds.extend({
+      lat: 23.634501,
+      lng: -102.552788
+  })
+  console.log("mid point:", bounds.getCenter().lat(), bounds.getCenter().lng());
+  var midpoint = [bounds.getCenter().lat(), bounds.getCenter().lng()]
+  console.log("Mid point: " + midpoint);
+  
+        var UCIlocation = { lat: 33.6405, lng: -117.8443 };
+  
         map = new google.maps.Map(document.getElementById('map'), {
+          //===================================================
+          // This needs to be midpoint variable
           center: UCIlocation,
           zoom: 15
         });
-
+  
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: UCIlocation,
           radius: 700,
-        //   keywords must be parsed into a single word array
-        keyword: ["food"]
+          //===================================================
+          //   keywords must be parsed into a single word array
+          keyword: ["food"]
         }, callback);
       }
-
+  
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
@@ -51,25 +80,23 @@
           console.log(results);
         }
       }
-
+  
       function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
-          position: place.geometry.location,
+          position: place.geometry.location
         });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
+        // var selectionLatLng = this.getPosition().toUrlValue()
+        // console.log(selectionLatLng);
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.setContent("<a href=" + "https://www.google.com/maps/search/?api=1&query=" + this.getPosition().toUrlValue() + "&query_place_id=" + place.place_id + ">" +place.name + "</a>" + "<hr>" + place.vicinity + "<br>" + "This place has: " + place.types.join(", "));
           infowindow.open(map, this);
         });
       }
     </script>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&libraries=places&callback=initMap">
-    </script>
-  </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&libraries=places&callback=initMap">
+  </script>
+</body>
+
 </html>
