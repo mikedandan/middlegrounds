@@ -144,6 +144,8 @@ $(document).ready(function () {
             allPeople: allPeople,
             meetPlace: meetPlace
         });
+        console.log(key);
+        window.location.assign("./selectMiddle.html?key=" + key);
     });
 });
 
