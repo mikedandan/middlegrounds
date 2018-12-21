@@ -56,23 +56,14 @@
     <div id="map"></div>
 
 
-    <script>
-        function initMap() {
 
-            // The location of currentPos
-            var currentPos = { lat: 33.6405, lng: -117.8443 };
-            // The map, centered at currentPos
-            var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 10, center: currentPos });
-            // The marker, positioned at currentPos
-            // var marker = new google.maps.Marker({position: new google.maps.LatLng(circle.getCenter().lat(), circle.getBounds().getNorthEast().lng()), map: map});
-        }
-        </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&libraries=places&callback=initMap">
-    </script>
-    <script type="text/javascript" src="./assets/javascript/maps.js"></script>
+        
+    
 
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
+    <script type="text/javascript" src="./assets/javascript/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&libraries=places&callback=initMap">
+    </script>
 
 </body>
 

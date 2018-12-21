@@ -26,35 +26,9 @@ var database = firebase.database();
 
     var meetPlace = $("#inputPlace").val();
 
-    // Console log each of the user inputs to confirm we are receiving them correctly
-    // console.log(name, eventName, people, meetPlace);
-    // console.log(people);
 
-    // database.ref().push({
-    //     name: name,
-    //     eventName: eventName,
-    //     people: people,
-    //     meetPlace: meetPlace
-    // });
-// });
 $(document).ready(function () {
-    // console.log("hey")
-    // var bounds = new google.maps.LatLngBounds();
-    // bounds.extend({
-    //     lat: 40.712776,
-    //     lng: -74.005974
-    // })
-    // bounds.extend({
-    //     lat: 37.774929,
-    //     lng: -122.419418
-    // })
-    // bounds.extend({
-    //     lat: 23.634501,
-    //     lng: -102.552788
-    // })  
-    // console.log("mid point:",bounds.getCenter().lat(),bounds.getCenter().lng());
-    // var midpoint = [bounds.getCenter().lat(),bounds.getCenter().lng()]
-    // console.log("Mid point: " + midpoint);
+
 
 
 
@@ -87,14 +61,7 @@ $(document).ready(function () {
         e.preventDefault(); $(this).parent('div').remove();
         x--;
     });
-    // Add new users to the allPeople array
-    // $(function () { //shorthand document.ready function
-    //     $('#login_form').on('submit', function (e) { //use on if jQuery 1.7+
-    //         e.preventDefault();  //prevent form from submitting
-    //         var data = $("#login_form :input").serializeArray();
-    //         console.log(data); //use the console for debugging, F12 in Chrome, not alerts
-    //     });
-    // });
+
     $("#initInvite").on("click", function (event) {
         console.log("working")
         event.preventDefault();
