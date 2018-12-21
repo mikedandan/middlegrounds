@@ -1,6 +1,6 @@
-database.ref().on('value', function(snapshot){
-console.log(snapshot.val());
-keywords = snapshot.peopleLocation
+database.ref().on('value', function (snapshot) {
+    console.log(snapshot.val());
+    var keywords = snapshot.meetPlace
 });
 
 var peopleLocation = [
@@ -15,25 +15,13 @@ var peopleLocation = [
 var keywords = ["restaurant"];
 var map;
 var infowindow;
-
+console.log(keywords);
 function initMap() {
     //==============================================
-    // This needs to be a for loop that adds the bounds.extend elements to the js file based on the peopleLocations variable length
+    // This  loop that adds the bounds.extend elements to the js file based on the peopleLocations variable length
     var bounds = new google.maps.LatLngBounds();
-    // bounds.extend({
-    //     lat: 40.712776,
-    //     lng: -73.935242
-    // })
-    // bounds.extend({
-    //     lat: 42.3601,
-    //     lng: -71.0589
-    // })
-    // bounds.extend({
-    //     lat: 38.5976,
-    //     lng: -80.4549
-    // })
-    // for loop for the bounds.extent
-    for (i =0;i < peopleLocation.length;i++){
+
+    for (i = 0; i < peopleLocation.length; i++) {
         bounds.extend(peopleLocation[i]);
     }
 
@@ -78,7 +66,27 @@ function createMarker(place) {
     // var selectionLatLng = this.getPosition().toUrlValue()
     // console.log(selectionLatLng);
     google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent("<a href=" + "https://www.google.com/maps/search/?api=1&query=" + this.getPosition().toUrlValue() + "&query_place_id=" + place.place_id + ">" + place.name + "</a>" + "<hr>" + place.vicinity + "<br>" + "This place has: " + place.types.join(", "));
-        infowindow.open(map, this);
+        
+            var googlelink = "https://www.google.com/maps/search/?api=1&query=" + this.getPosition().toUrlValue() + "&query_place_id=" + place.place_id + ">";
+
+            database.ref().on('value', function (snapshot) {
+                console.log(snapshot.val());
+            });
+
+            infowindow.setContent("<a class='mapLink' href=" + googlelink + place.name + "</a>" + "<hr>" + place.vicinity + "<br>" + "This place has: " + place.types.join(", "));
+            infowindow.open(map, this);
+        
     });
 }
+
+$(".mapLink").on("click", function (event) {
+
+    var href = window.location.href;
+    var url = new URL(href);
+    var key = url.searchParams.get("key");
+
+    database.ref(key).on("value", function (childSnapshot) {
+        console.log(childSnapshot.val());
+        alert("clicked");
+    });
+});

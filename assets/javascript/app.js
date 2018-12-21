@@ -38,7 +38,17 @@ $(document).ready(function () {
     var meetPlace = []
     var max_fields = 10;
     var isSubmitted = false;
+
+    var href = window.location.href;
+    var url = new URL(href);
+    var key = url.searchParams.get("key");
+
+
+    $(".linkAddress").html("<a href='./recipientWaiting.html?key=" + key + "'>Copy this link and send it to whoever you want to join</a>");
+
+
     peopleLocation = [];
+
 
 
     var x = 1;
@@ -117,14 +127,14 @@ $(document).ready(function () {
         }
 
         function showPosition(position) {
-            console.log("Position" + position)
+            console.log("Position: ", position)
             var newLatLng = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             }
-            console.log("New Lat Lng" + newLatLng[0]);
+            console.log("New Lat Lng", newLatLng);
             peopleLocation.push(newLatLng);
-            console.log("People Location: " + peopleLocation);
+            console.log(peopleLocation);
         }
         function showError(error) {
             console.log(error)
@@ -157,8 +167,9 @@ $(document).ready(function () {
         //     alert("Copied the text: " + copyText.value);
         // }
         // linkToClipboard();
-
-        //window.location.assign("./waiting.html?key=" + key);
+        setTimeout(function () {
+            window.location.assign("./waiting.html?key=" + key);
+        }, 2000)
     });
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
@@ -199,12 +210,12 @@ $(document).ready(function () {
                         allPeople: val
                     });
 
-                    for (var i = 0; i < val.length; i++) {
-                        var newNameDiv = $("<div class='col s3 m3 l3'>");
-                        var newName = $("<h4 class='present'>").html(allPeople[i]);
-                        newNameDiv.append(newName);
-                        $(".addPresent").append(newNameDiv); //add input box
-                    }
+                    // for (var i = 0; i < val.length; i++) {
+                    //     var newNameDiv = $("<div class='col s3 m3 l3'>");
+                    //     var newName = $("<h4 class='present'>").html(allPeople[i]);
+                    //     newNameDiv.append(newName);
+                    //     $(".addPresent").append(newNameDiv); //add input box
+                    // }
                 })
 
 
@@ -233,15 +244,21 @@ $(document).ready(function () {
         console.log(val);
 
         for (var i = 0; i < val.length; i++) {
-            var newNameDiv = $("<div class='col s3 m3 l3'>");
+            var newNameDiv = $("<div class='col s4 m4 l4'>");
             var newName = $("<h4 class='present'>").html(val[i]);
             newNameDiv.append(newName);
             $(".addPresent").append(newNameDiv);
         }    //add input box
 
+        var recipientMapLink = "";
 
-
-
+        if (!recipientMapLink == "") {
+            console.log("link is here")
+        } else {
+            console.log("no link yet")
+        }
     });
+
+    
 });
 
