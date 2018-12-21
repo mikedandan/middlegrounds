@@ -13,18 +13,18 @@ var database = firebase.database();
 
 // Capture Button Click
 
-    // var name = $("#inputName").val();
-    // var eventName = $("#inputEvent").val();
+// var name = $("#inputName").val();
+// var eventName = $("#inputEvent").val();
 
-    // var people = $(".addPerson").val();
+// var people = $(".addPerson").val();
 
-    var people = $(".addPerson");
+var people = $(".addPerson");
 
-    for (var i = 0; i < people.length; i++) {
-        console.log($(people[i]).val());
-    }
+for (var i = 0; i < people.length; i++) {
+    console.log($(people[i]).val());
+}
 
-    var meetPlace = $("#inputPlace").val();
+var meetPlace = $("#inputPlace").val();
 
 
 $(document).ready(function () {
@@ -37,6 +37,7 @@ $(document).ready(function () {
     var allPeople = []
     var meetPlace = []
     var max_fields = 10;
+    var isSubmitted = false;
 
 
     var x = 1;
@@ -63,14 +64,13 @@ $(document).ready(function () {
     });
 
     $("#initInvite").on("click", function (event) {
-        console.log("working")
         event.preventDefault();
-        var name = $("#inputName").val();
-        console.log(name);
+        var allPeopleVal = [$("#inputName").val()];
 
         var newKey = database.ref().push({
-            name: name,
+            allPeople: allPeopleVal,
         });
+
 
         console.log(newKey.key);
         window.location.assign("./sendinvite.html?key=" + newKey.key);
@@ -83,10 +83,10 @@ $(document).ready(function () {
         event.preventDefault();
         // var arr = [];
         // Capture User Inputs and store them into variables
-        $(".addPerson").each(function (i, elem) {
-            console.log(elem)
-            allPeople.push($(elem).val());
-        })
+        // $(".addPerson").each(function (i, elem) {
+        //     console.log(elem)
+        //     allPeople.push($(elem).val());
+        // })
         $("#inputPlace").each(function (i, elem) {
             console.log(elem)
             meetPlace.push($(elem).val());
@@ -108,7 +108,7 @@ $(document).ready(function () {
         database.ref(key).update({
             // name: name,
             eventName: eventName,
-            allPeople: allPeople,
+            // allPeople: allPeople,
             meetPlace: meetPlace
         });
         console.log(key);
@@ -116,6 +116,48 @@ $(document).ready(function () {
     });
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
+
+        if (isSubmitted == false) {
+
+            $(this).addClass("grey");
+            var newPersonName = $("#inputRecipientName").val();
+
+            var newNameDiv = $("<div class='col s3 m3 l3'>");
+            var newName = $("<h4 class='present'>").text(newPersonName);
+
+            newNameDiv.append(newName);
+
+            allPeople.push(newPersonName);
+
+            var href = window.location.href;
+
+            var url = new URL(href);
+            var key = url.searchParams.get("key");
+            console.log(allPeople);
+            // allPeople = ["the", "only", "one"];
+            console.log(allPeople);
+            database.ref(key).once("value")
+                .then(function (snapshot) {
+                    var val = snapshot.val().allPeople;
+                    console.log(val);
+                    val.push(newPersonName);
+                    database.ref(key).update({ allPeople: val });
+                    for (var i = 0; i < val.length; i++) {
+                        var newNameDiv = $("<div class='col s3 m3 l3'>");
+                        var newName = $("<h4 class='present'>").text(newPersonName);
+                        newNameDiv.append(newName);
+                        $("#addPresent").append(val); //add input box
+                    }
+                })
+
+
+            isSubmitted = true;
+        } else {
+            return;
+        }
+
+
+
     });
 });
 
