@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-    
+
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             <div class="row valign-wrapper nav-icon-container">
                 <div class="col s1"></div>
                 <div class="col s3">
-                    
+
                     <span class="icon-font icon-font-visited">s</span>
                 </div>
                 <div class="col s3">
@@ -54,25 +54,17 @@
     <!-- End of header -->
     <!--The div element for the map -->
     <div id="map"></div>
-    <script>
+
+
+
         
-        // Initialize and add the map
-        function initMap() {
-        // The location of currentPos
-        var currentPos = {lat: 33.6405, lng: -117.8443};
-        // The map, centered at currentPos
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 10, center: currentPos});
-        // The marker, positioned at currentPos
-        var marker = new google.maps.Marker({position: currentPos, map: map});
-        }
+    
+
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+    <script type="text/javascript" src="./assets/javascript/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&libraries=places&callback=initMap">
     </script>
 
-    
-    <script type="text/javascript" src="./assets/javascript/app.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEmx724wG2jQqo_iqfM-Uo_Nah7iNFyYA&callback=initMap">
-    </script>
 </body>
 
 

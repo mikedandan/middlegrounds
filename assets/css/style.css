@@ -17,148 +17,143 @@ nav {
 .col {
     position: relative;
 }
-    .button-add
-    {
-        background-color: #1c97f3;
-        border: none;
-        color: white;
-        padding: 8px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border:1px solid #186dad;
-    }
-    .page-footer{
-        background-color:#E6E6E6;
-    }
-    
-    input{
-        border-bottom:none!important;
-       
-    }
-    .input-field {
-        margin: 8px 0;
-        display: inline-block;
-        border: 2px solid #9DE1A6;
-        border-radius: 15px;
-        box-sizing: border-box;
-        background-color: white;
-    }
-    
-    .delete{
-        background-color: #fd1200;
-        border: none;
-        color: white;
-        padding: 5px 15px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-    .icon-logo {
-        align-content: center;
-    }
-    .nav-content .row .page-title {
-        font-family: 'Roboto Slab', serif;
-        margin: 0;
-        padding: 0 0 30px;
-    }
-    .icon-img {
-        padding:12px;
-    }
-    .middleGround-logo{
-        margin:0 auto;
-        display:block;
-        max-width:100%;
-        width: 200px;
-    }
-    .row .submit-button{
-        display:block;
-        border-radius:15px;
-        background-color:#9DE1A6;
-    }
-    .footer {
-        background-color: #fff;
-        margin-bottom: 0;
-        padding: 30px 0;
-    }
-    .page-footer {
-        background-color: #DEE0DD;
-    }
-    h2 {
-        color: #fff;
-        font-family: roboto slab;
-    }
-    h5 {
-        color: #fff;
-        font-size: 1.3em;
-        font-family: roboto;
-        font-weight: 700;
-    }
-    .deletePerson {
-        display: block;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        color: #F07153;
-    }
-    .deletePersonCircle img {
-        width: 20px;
-        display: block;
-        position: absolute;
-        right:0;
-   
-    }
-    .checked-in {
-        border: solid white 3px;
-    }
-    .waiting-on {
-        /* border: 4px #9DE1A6 dotted; */
-        padding: 3px;
-    }
-    .waiting-on-text {
-        color:#9de1a6;
-        display:block;
-    }
-    .divider {
-        height: 1px;
-        overflow: hidden;
-        background-color: transparent;
-        border: dashed 1px #9de1a6;
-    }
-    .icon-font {
-        font-family: 'icomoon';
-        font-size: 3.5em;
-        color: #9de1a6;
-    }
-    .nav-icon-container {
-        margin-top: 40px;
-    }
-    span.icon-font.icon-font-active {
-        color:white;
-    }
-    span.icon-font.icon-font-visited {
-        color:white;
-        opacity:.3;
-    }
-    form {
-        display: inline;
-        align-items: center;
-        justify-content: center;
-    }
-/* circle border test    */
+.button-add {
+    background-color: #1c97f3;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border:1px solid #186dad;
+}
+.page-footer{
+    background-color:#E6E6E6;
+}
+input{
+    border-bottom:none!important;
+}
+.input-field {
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #9DE1A6;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: white;
+}
+.delete{
+    background-color: #fd1200;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.icon-logo {
+    align-content: center;
+}
+.nav-content .row .page-title {
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0 0 30px;
+}
+.icon-img {
+    padding:12px;
+}
+.middleGround-logo{
+    margin:0 auto;
+    display:block;
+    max-width:100%;
+    width: 200px;
+}
+.row .submit-button{
+    display:block;
+    border-radius:15px;
+    background-color:#9DE1A6;
+}
+.footer {
+    background-color: #fff;
+    margin-bottom: 0;
+    padding: 30px 0;
+}
+.page-footer {
+    background-color: #DEE0DD;
+}
+h2 {
+    color: #fff;
+    font-family: roboto slab;
+}
+h5 {
+    color: #fff;
+    font-size: 1.3em;
+    font-family: roboto;
+    font-weight: 700;
+}
+.deletePerson {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #F07153;
+}
+.deletePersonCircle img {
+    width: 20px;
+    display: block;
+    position: absolute;
+    right:0;
+}
+.checked-in {
+    border: solid white 3px;
+}
+.waiting-on {
+   /* border: 4px #9DE1A6 dotted;
+    */
+    padding: 3px;
+}
+.waiting-on-text {
+    color:#9de1a6;
+    display:block;
+}
+.divider {
+    overflow: hidden;
+    background-color: transparent;
+    border: dashed 1px #9de1a6;
+}
+.icon-font {
+    font-family: 'icomoon';
+    font-size: 3.5em;
+    color: #9de1a6;
+}
+.nav-icon-container {
+    margin-top: 40px;
+}
+.icon-font.icon-font-active {
+    color:white;
+}
+.icon-font.icon-font-visited {
+    color:white;
+    opacity:.3;
+}
+form {
+    display: inline;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    text-align: center;
+}
+/* circle border test */
 .circle-border {
     position: relative;
-
     border-radius: 50%;
-  }
-  
-  .circle-border:before {
+}
+.circle-border:before {
     position: absolute;
     content: '';
     height: calc(100% + 10px);
@@ -169,20 +164,25 @@ nav {
     border-radius: inherit;
     animation: spin 10s linear infinite;
 }
-
-
-  
-  @keyframes spin { 
-    100% { 
-      transform: rotateZ(360deg); 
-    }
-  }
+@keyframes spin {
+    100% {
+        transform: rotateZ(360deg);
+   }
+}
 /* Google Map Styles */
 #map {
     height:485px;
+<<<<<<< HEAD
     width:100%;}
 
     /* .btn_waves-effect_waves-light { */
         /* background-color: #9DE1A6; */
 
     /* } */
+=======
+    width:100%;
+}
+.gmnoprint {
+    display: none;
+}
+>>>>>>> f69257c6ec51ff44b6d30cb5284593d336da9359
