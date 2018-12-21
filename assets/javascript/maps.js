@@ -1,23 +1,18 @@
-
-// database.on('value', snapshot => {
-//     console.log(snapshot.val());
-// });
-// Assign the reference to the database to a variable named 'database'
+database.ref().on('value', function(snapshot){
+console.log(snapshot.val());
+keywords = snapshot.peopleLocation
+});
 
 var peopleLocation = [
     {
-        lat: 40.712776,
-        lng: -73.935242
+        lat: 33.7175,
+        lng: -117.8311
     },
     {
-        lat: 42.3601,
-        lng: -71.0589
-    },
-    {
-        lat: 38.5976,
-        lng: -80.4549
+        lat: 34.0522,
+        lng: -118.2437
     }];
-var keywords = ["food","gas"];
+var keywords = ["restaurant"];
 var map;
 var infowindow;
 
