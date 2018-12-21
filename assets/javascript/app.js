@@ -117,46 +117,82 @@ $(document).ready(function () {
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
 
+        
+
         if (isSubmitted == false) {
+            // remove current HTML
+         $(".addPresent").html("");
 
             $(this).addClass("grey");
             var newPersonName = $("#inputRecipientName").val();
 
-            var newNameDiv = $("<div class='col s3 m3 l3'>");
-            var newName = $("<h4 class='present'>").text(newPersonName);
+            // var newNameDiv = $("<div class='col s3 m3 l3'>");
+            // var newName = $("<h4 class='present'>").text(newPersonName);
 
-            newNameDiv.append(newName);
+            // newNameDiv.append(newName);
 
-            allPeople.push(newPersonName);
+            // allPeople.push(newPersonName);
 
             var href = window.location.href;
 
             var url = new URL(href);
             var key = url.searchParams.get("key");
-            console.log(allPeople);
+
             // allPeople = ["the", "only", "one"];
-            console.log(allPeople);
+
             database.ref(key).once("value")
                 .then(function (snapshot) {
                     var val = snapshot.val().allPeople;
-                    console.log(val);
+                    console.log(snapshot.val());
+
                     val.push(newPersonName);
-                    database.ref(key).update({ allPeople: val });
+
+                    console.log(val);
+
+                    database.ref(key).update({
+                        allPeople: val
+                    });
+                    
                     for (var i = 0; i < val.length; i++) {
                         var newNameDiv = $("<div class='col s3 m3 l3'>");
-                        var newName = $("<h4 class='present'>").text(newPersonName);
+                        var newName = $("<h4 class='present'>").html(allPeople[i]);
                         newNameDiv.append(newName);
-                        $("#addPresent").append(val); //add input box
+                        $(".addPresent").append(newNameDiv); //add input box
                     }
                 })
 
 
             isSubmitted = true;
+            console.log(isSubmitted);
         } else {
-            return;
+            // return;
+            event.preventDefault();
+            console.log(isSubmitted);
         }
 
 
+
+    });
+    // gettind dat info from the database
+    var href = window.location.href;
+    var url = new URL(href);
+    var key = url.searchParams.get("key");
+
+    database.ref(key).on("value", function(childSnapshot) {
+        // remove current HTML
+        $(".addPresent").html("");
+        console.log(childSnapshot.val());
+
+        var val = childSnapshot.val().allPeople;
+        console.log(val);
+
+        for (var i = 0; i < val.length; i++) {
+            var newNameDiv = $("<div class='col s3 m3 l3'>");
+            var newName = $("<h4 class='present'>").html(val[i]);
+            newNameDiv.append(newName);
+            $(".addPresent").append(newNameDiv);
+            }    //add input box
+        
 
     });
 });
