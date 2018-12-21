@@ -68,7 +68,7 @@ input{
 }
 .middleGround-logo{
     margin:0 auto;
-    display:block;
+    /* display:block; */
     max-width:100%;
     width: 200px;
 }
@@ -94,6 +94,13 @@ h5 {
     font-size: 1.3em;
     font-family: roboto;
     font-weight: 700;
+}
+h3 {
+    color: #fff;
+    font-size: 2em;
+    font-family: roboto slab;
+    font-weight: 700;
+    
 }
 .deletePerson {
     display: block;
