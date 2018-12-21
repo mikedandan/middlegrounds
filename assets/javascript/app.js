@@ -112,7 +112,10 @@ $(document).ready(function () {
             meetPlace: meetPlace
         });
         console.log(key);
-        window.location.assign("./selectMiddle.html?key=" + key);
+        window.location.assign("./waiting.html?key=" + key);
+    });
+    $("#newRecipient").on("click", function (event) {
+        event.preventDefault();
     });
 });
 

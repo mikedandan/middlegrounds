@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Waiting on Response</title>
+    <title>Invite Waiting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts - Roboto and roboto slab-->
@@ -46,7 +46,7 @@
         </div>
         <div class="nav-content">
             <div class="row">
-                <h1 class="nav-title page-title">Waiting on Response</h1>
+                <h1 class="nav-title page-title">Waiting for everyone</h1>
             </div>
         </div>
     </nav>
@@ -63,18 +63,20 @@
     </div>
     <div class="divider"></div>
     <div class="container">
-        <div class="row">
-            <p></p>
-            <button id="mapMeNow" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
-                Ready to Map</button>
+        <form class="col s12 m12 center-align">
+            <div class="row">
+                <h5 style="color: white;">Enter your name</h5>
+                <p class="body-copy">By clicking this, your location will be sent and the meetup location will be closer to you.</p>
+                <div class="input-field col s12 m12 center-align">
+                    <input placeholder="Your Name Here" id="inputRecipientName" type="text">
 
-        </div>
-        <div class="row">
-            <h5>Here is the link again:</h5>
-            <p class="linkAddress">Super awesome link</p>
-        </div>
+                </div>
+                        <button id="newRecipient" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
+                            Send My Location</button>
+        
+            </div>
+        </form>
     </div>
-
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 

@@ -76,6 +76,7 @@ input{
     display:block;
     border-radius:15px;
     background-color:#9DE1A6;
+    width:100%;
 }
 .footer {
     background-color: #fff;
@@ -183,4 +184,12 @@ form {
 }
 .gmnoprint {
     display: none;
+}
+h4.present {
+    background-color: #fff;
+    border-radius: 20px;
+    font-size:1.5em;
+}
+.body-copy {
+    color:#fff;
 }
