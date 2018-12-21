@@ -38,6 +38,7 @@ $(document).ready(function () {
     var meetPlace = []
     var max_fields = 10;
     var isSubmitted = false;
+    peopleLocation = [];
 
 
     var x = 1;
@@ -72,7 +73,6 @@ $(document).ready(function () {
         });
 
 
-        console.log(newKey.key);
         window.location.assign("./sendinvite.html?key=" + newKey.key);
 
 
@@ -81,14 +81,8 @@ $(document).ready(function () {
 
     $("#sendInvite").on("click", function (event) {
         event.preventDefault();
-        // var arr = [];
-        // Capture User Inputs and store them into variables
-        // $(".addPerson").each(function (i, elem) {
-        //     console.log(elem)
-        //     allPeople.push($(elem).val());
-        // })
+
         $("#inputPlace").each(function (i, elem) {
-            console.log(elem)
             meetPlace.push($(elem).val());
         });
 
@@ -97,13 +91,11 @@ $(document).ready(function () {
         // console.log(href);
         var url = new URL(href);
         var key = url.searchParams.get("key");
-        console.log(key);
 
         var eventName = $(".inputEvent").val();
         // var people = $(".addPerson").val();
         // var meetPlace = $("#inputPlace").val();
         // Console log each of the user inputs to confirm we are receiving them correctly
-        console.log(eventName, allPeople, meetPlace);
         console.log("run")
         database.ref(key).update({
             // name: name,
@@ -111,17 +103,71 @@ $(document).ready(function () {
             // allPeople: allPeople,
             meetPlace: meetPlace
         });
-        console.log(key);
-        window.location.assign("./waiting.html?key=" + key);
+
+        // Store Lat and Lng in array:
+        var x = document.getElementById("error-handling");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+                console.log("works");
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            console.log("Position" + position)
+            var newLatLng = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            }
+            console.log("New Lat Lng" + newLatLng[0]);
+            peopleLocation.push(newLatLng);
+            console.log("People Location: " + peopleLocation);
+        }
+        function showError(error) {
+            console.log(error)
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+        getLocation();
+
+
+        // copy link to clipboard
+        // var link = ("./recipientWaiting.html?key=" + key);
+        // function linkToClipboard() {
+        //     var copyText = "";
+        //     console.log(copyText);
+        //     copyText.value = link;
+        //     copyText.select();
+        //     document.execCommand("copy");
+        //     alert("Copied the text: " + copyText.value);
+        // }
+        // linkToClipboard();
+
+        //window.location.assign("./waiting.html?key=" + key);
     });
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
 
-        
+
 
         if (isSubmitted == false) {
             // remove current HTML
-         $(".addPresent").html("");
+            $(".addPresent").html("");
 
             $(this).addClass("grey");
             var newPersonName = $("#inputRecipientName").val();
@@ -152,7 +198,7 @@ $(document).ready(function () {
                     database.ref(key).update({
                         allPeople: val
                     });
-                    
+
                     for (var i = 0; i < val.length; i++) {
                         var newNameDiv = $("<div class='col s3 m3 l3'>");
                         var newName = $("<h4 class='present'>").html(allPeople[i]);
@@ -178,7 +224,7 @@ $(document).ready(function () {
     var url = new URL(href);
     var key = url.searchParams.get("key");
 
-    database.ref(key).on("value", function(childSnapshot) {
+    database.ref(key).on("value", function (childSnapshot) {
         // remove current HTML
         $(".addPresent").html("");
         console.log(childSnapshot.val());
@@ -191,8 +237,10 @@ $(document).ready(function () {
             var newName = $("<h4 class='present'>").html(val[i]);
             newNameDiv.append(newName);
             $(".addPresent").append(newNameDiv);
-            }    //add input box
-        
+        }    //add input box
+
+
+
 
     });
 });
