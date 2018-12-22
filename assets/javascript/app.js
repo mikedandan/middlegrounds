@@ -136,7 +136,7 @@ $(document).ready(function () {
         //     );
         // }, 2000);
 
-        setTimeout(function () { window.location.assign("./waiting.html?key=" + key); }, 3000);
+        setTimeout(function () { window.location.assign("./waiting.html?key=" + key); }, 5000);
 
     });
     //================================================================================
