@@ -9,16 +9,19 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-// Assign the reference to the database to a variable named 'database'
 var database = firebase.database();
 
-// Capture Button Click
+var dataRef = database.ref().on("value", function (snapshot) {
+    console.log("database: ", snapshot.val())
+})
 
-// var name = $("#inputName").val();
-// var eventName = $("#inputEvent").val();
+// innitial variables
+var name = "";
+var allEmail = [];
+var allPeople = [];
+var peopleLocation = [];
 
-// var people = $(".addPerson").val();
+
 
 var people = $(".addPerson");
 
@@ -29,36 +32,23 @@ for (var i = 0; i < people.length; i++) {
 var meetPlace = $("#inputPlace").val();
 
 $(document).ready(function () {
-    // console.log("hey")
-    // var bounds = new google.maps.LatLngBounds();
-    // bounds.extend({
-    //     lat: 40.712776,
-    //     lng: -74.005974
-    // })
-    // bounds.extend({
-    //     lat: 37.774929,
-    //     lng: -122.419418
-    // })
-    // bounds.extend({
-    //     lat: 23.634501,
-    //     lng: -102.552788
-    // })  
-    // console.log("mid point:",bounds.getCenter().lat(),bounds.getCenter().lng());
-    // var midpoint = [bounds.getCenter().lat(),bounds.getCenter().lng()]
-    // console.log("Mid point: " + midpoint);
 
-
-
-    // Database Variables:
+    // Database Variables
     // All new users will be added to this array
     var allPeople = []
     var allEmails = []
     var meetPlace = []
     var max_fields = 10;
     var isSubmitted = false;
-    peopleLocation = [];
+    var peopleLocation = [];
+    var href = window.location.href;
+    var url = new URL(href);
+    var key = url.searchParams.get("key");
+
 
     var x = 1;
+    //===========================================================================================
+    // This button adds a new input field on the screen for multiple email addresses
     $("#addPersonDiv").click(function (e) {
         e.preventDefault();
         if (x < max_fields) {
@@ -76,28 +66,30 @@ $(document).ready(function () {
         }
     });
 
+    //===========================================================================================
+    // This button deletes the input if you did not mean to add so many
     $(document).on("click", ".deletePerson", function (e) {
         e.preventDefault(); $(this).parent('div').remove();
         x--;
     });
 
+    //===========================================================================================
+    // This is the first button that creates the key on the index page. It also stores the name key
     $("#initInvite").on("click", function (event) {
-        console.log("working")
         event.preventDefault();
         var name = $("#inputName").val();
-        console.log(name);
 
         var newKey = database.ref().push({
-            name: name,
+            name: name
         });
 
-        console.log(newKey.key);
-        window.location.assign("./sendinvite.html?key=" + newKey.key);
-
-
-
+        setTimeout(function () {
+            window.location.assign("./sendinvite.html?key=" + newKey.key);
+        }, 2000);
     });
 
+    //===========================================================================================
+    // This button adds an even title to the database. It adds emails to send messages containing lat/long link
     $("#sendInvite").on("click", function (event) {
         event.preventDefault();
         // var arr = [];
@@ -111,68 +103,25 @@ $(document).ready(function () {
             meetPlace.push($(elem).val());
         });
 
-        var href = window.location.href;
-
-        // console.log(href);
-        var url = new URL(href);
-        var key = url.searchParams.get("key");
-        console.log(key);
+        // Store Lat and Lng in array:
+        console.log("People Location(before): ", peopleLocation);
 
         var eventName = $(".inputEvent").val();
-        // var people = $(".addPerson").val();
-        // var meetPlace = $("#inputPlace").val();
-        // Console log each of the user inputs to confirm we are receiving them correctly
-        console.log(eventName, allPeople, meetPlace, allEmails);
+
         console.log("run")
         database.ref(key).update({
             // name: name,
             eventName: eventName,
             allEmails: allEmails,
             allPeople: allPeople,
-            meetPlace: meetPlace
+            meetPlace: meetPlace,
+            peopleLocation: peopleLocation
         });
 
-        // Store Lat and Lng in array:
-        var x = document.getElementById("error-handling");
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-                console.log("works");
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-            console.log("Position" + position)
-            var newLatLng = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            }
-            console.log("New Lat Lng" + newLatLng[0]);
-            peopleLocation.push(newLatLng);
-            console.log("People Location: " + peopleLocation);
-        }
-        function showError(error) {
-            console.log(error)
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    x.innerHTML = "User denied the request for Geolocation."
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    x.innerHTML = "Location information is unavailable."
-                    break;
-                case error.TIMEOUT:
-                    x.innerHTML = "The request to get user location timed out."
-                    break;
-                case error.UNKNOWN_ERROR:
-                    x.innerHTML = "An unknown error occurred."
-                    break;
-            }
-        }
+        // This function gets the geolocation and stores it for later
         getLocation();
-        
+        console.log("People Location(after): ", peopleLocation);
+
         setTimeout(function () {
             Email.send({
                 Host: "smtp.elasticemail.com",
@@ -187,10 +136,10 @@ $(document).ready(function () {
             );
         }, 2000);
         setTimeout(function () { window.location.assign("./waiting.html?key=" + key); }, 3000);
-        // console.log(key);
-        // window.location.assign("./waiting.html?key=" + key);
-    });
 
+    });
+    //================================================================================
+    // This lets everyone know that you have checked in and provided your geolocation
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
 
@@ -210,10 +159,7 @@ $(document).ready(function () {
 
             allPeople.push(newPersonName);
 
-            var href = window.location.href;
-
-            var url = new URL(href);
-            var key = url.searchParams.get("key");
+            geolocation();
 
             // allPeople = ["the", "only", "one"];
 
@@ -250,26 +196,69 @@ $(document).ready(function () {
 
 
     });
-    // gettind dat info from the database
-    var href = window.location.href;
-    var url = new URL(href);
-    var key = url.searchParams.get("key");
+    //=========================================================================
+    // this buttons takes you to the map using the data we collected in the database
+    $("#mapMeNow").on("click", function (event) {
+        event.preventDefault();
 
-    database.ref(key).on("value", function (childSnapshot) {
-        // remove current HTML
-        $(".addPresent").html("");
-        console.log(childSnapshot.val());
-
-        var val = childSnapshot.val().allPeople;
-        console.log(val);
-
-        for (var i = 0; i < val.length; i++) {
-            var newNameDiv = $("<div class='col s12 m6 l6'>");
-            var newName = $("<h4 class='present'>").html(val[i]);
-            newNameDiv.append(newName);
-            $(".addPresent").append(newNameDiv);
-        }    //add input box
-
+        // // take me to map page with lat lng var added
+        // var href = window.location.href;
+        // var url = new URL(href);
+        // var key = url.searchParams.get("key");
+        setTimeout(function () { window.location.assign("./selectMiddle.html?key=" + key); }, 2000);
     });
+
+    //=======================================================================
+    // This button grabs the selected destination and adds it to the database which should populate on all other screens
+    $(document).on("click", ".mapLink", function (e) {
+        e.preventDefault();
+        var newLocation = $(this).attr(href);
+        database.ref(key).set({
+            meetUpLink: meetUpLink
+        });
+    });
+
+    //=========================================================================
+    // This series of functions gathers the Latitude and Longitude of the user
+    var x = document.getElementById("error-handling");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position, callback) {
+
+        var newLatLng = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        }
+        peopleLocation.push(newLatLng);
+        console.log("People Location(inside): ", peopleLocation);
+        function callback() {
+            console.log("did this work?");
+        }
+
+    }
+    function showError(error) {
+        console.log(error)
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
 
 });
