@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +12,27 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:700" rel="stylesheet">
     <!-- Custom font CSS -->
     <link rel="stylesheet" href="assets/css/font.css">
+
     <!-- Material icons CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
+
 <body>
     <nav class="nav-extended">
         <div class="nav-wrapper">
             <a href="#"></a>
             <img class="middleGround-logo" src="./assets/images/middle-ground-logo322.png" alt="middleGround-Logo">
         </div>
+
+
+
         <div class="nav-content">
             <div class="row valign-wrapper nav-icon-container">
                 <div class="col s1"></div>
                 <div class="col s3">
+
                     <span class="icon-font icon-font-active">s</span>
                 </div>
                 <div class="col s3">
@@ -44,7 +50,9 @@
             </div>
         </div>
     </nav>
+
     <!-- End of header -->
+
     <div class="container main-content">
         <div class="row">
             <form class="col s12 m12 center-align" method="POST" id="sendForm">
@@ -54,12 +62,24 @@
                         <input placeholder="Event Name" id="text" type="text" class="inputEvent" name="event-name">
                     </div>
                 </div>
+
                 <div class="row">
+                        <h5 style="color: white;">Select the type of place to meet up</h5>
+                        <div class="input-field col s12 m12 center-align">
+                            <input placeholder="What do you want the place to have?" id="inputPlace" type="text">
+                            <label for="place"></label>
+    
+                        </div>
+                    </div>
+
+                <!-- <div class="row">
                     <h5>Invite People</h5>
                     <div id="addPeople">
                         <div class="input-field col s12 m12 center-align">
                             <input placeholder="Phone Number or Email" type="text" class="addPerson" name="person-invited">
                         </div>
+
+
                     </div>
                     <div class="col s12 m12 center-align" id="addPersonDiv">
                         <a class="btn-floating">
@@ -67,31 +87,40 @@
                         </a>
                         <span class="white-text">Add another person</span>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="divider"></div>
                 <div class="row">
-                    <h5 style="color: white;">Select the type of place to meet up</h5>
-                    <div class="input-field col s12 m12 center-align">
-                        <input placeholder="What do you want the place to have?" id="inputPlace" type="text">
-                        <label for="place"></label>
+                        <h5>What happens next?</h5>
+                        <p class="body-copy">
+                            By clicking Copy Link, you will be getting a link that is shared to help find a location between all of the friends(or enemies) you wish to send the link too.
+                        </p>
+                        <p class="body-copy">Simply copy the link below and text message it to whoever you are meeting up with.</p>
                     </div>
-                </div>
+
+                
+
+
             </form>
         </div>
+
     </div>
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col s12 m12">
-                    <button class="waves-effect btn-large submit-button" id="sendInvite" name="action" type="submit"
-                        value="submit">
-                        Sent Invite
-                    </button>
-                </div>
+                <button id="sendInvite" class="waves-effect btn-large submit-button" name="action" type="submit" value="submit">
+                    Copy Link</button>
+
             </div>
+            <p  id="error-handling"></p>
         </div>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+
+
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
+
 </html>

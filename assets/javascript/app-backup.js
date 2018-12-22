@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
     apiKey: "AIzaSyAEOkd5JKDXjNJ5uwCIgbxasAWVf4hmgJM",
     authDomain: "meetup-c5cfa.firebaseapp.com",
@@ -8,7 +7,6 @@ var config = {
     messagingSenderId: "738857759873"
 };
 firebase.initializeApp(config);
-
 
 // Assign the reference to the database to a variable named 'database'
 var database = firebase.database();
@@ -28,35 +26,30 @@ for (var i = 0; i < people.length; i++) {
 
 var meetPlace = $("#inputPlace").val();
 
+
 $(document).ready(function () {
-    // console.log("hey")
-    // var bounds = new google.maps.LatLngBounds();
-    // bounds.extend({
-    //     lat: 40.712776,
-    //     lng: -74.005974
-    // })
-    // bounds.extend({
-    //     lat: 37.774929,
-    //     lng: -122.419418
-    // })
-    // bounds.extend({
-    //     lat: 23.634501,
-    //     lng: -102.552788
-    // })  
-    // console.log("mid point:",bounds.getCenter().lat(),bounds.getCenter().lng());
-    // var midpoint = [bounds.getCenter().lat(),bounds.getCenter().lng()]
-    // console.log("Mid point: " + midpoint);
+
 
 
 
     // Database Variables:
     // All new users will be added to this array
     var allPeople = []
-    var allEmails = []
     var meetPlace = []
     var max_fields = 10;
     var isSubmitted = false;
+
+    var href = window.location.href;
+    var url = new URL(href);
+    var key = url.searchParams.get("key");
+
+
+    $(".linkAddress").html("<a href='./recipientWaiting.html?key=" + key + "'>Copy this link and send it to whoever you want to join</a>");
+
+
     peopleLocation = [];
+
+
 
     var x = 1;
     $("#addPersonDiv").click(function (e) {
@@ -82,16 +75,14 @@ $(document).ready(function () {
     });
 
     $("#initInvite").on("click", function (event) {
-        console.log("working")
         event.preventDefault();
-        var name = $("#inputName").val();
-        console.log(name);
+        var allPeopleVal = [$("#inputName").val()];
 
         var newKey = database.ref().push({
-            name: name,
+            allPeople: allPeopleVal,
         });
 
-        console.log(newKey.key);
+
         window.location.assign("./sendinvite.html?key=" + newKey.key);
 
 
@@ -100,14 +91,8 @@ $(document).ready(function () {
 
     $("#sendInvite").on("click", function (event) {
         event.preventDefault();
-        // var arr = [];
-        // Capture User Inputs and store them into variables
-        $(".addPerson").each(function (i, elem) {
-            console.log(elem)
-            allEmails.push($(elem).val());
-        })
+
         $("#inputPlace").each(function (i, elem) {
-            console.log(elem)
             meetPlace.push($(elem).val());
         });
 
@@ -116,19 +101,16 @@ $(document).ready(function () {
         // console.log(href);
         var url = new URL(href);
         var key = url.searchParams.get("key");
-        console.log(key);
 
         var eventName = $(".inputEvent").val();
         // var people = $(".addPerson").val();
         // var meetPlace = $("#inputPlace").val();
         // Console log each of the user inputs to confirm we are receiving them correctly
-        console.log(eventName, allPeople, meetPlace, allEmails);
         console.log("run")
         database.ref(key).update({
             // name: name,
             eventName: eventName,
-            allEmails: allEmails,
-            allPeople: allPeople,
+            // allPeople: allPeople,
             meetPlace: meetPlace
         });
 
@@ -145,14 +127,14 @@ $(document).ready(function () {
         }
 
         function showPosition(position) {
-            console.log("Position" + position)
+            console.log("Position: ", position)
             var newLatLng = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             }
-            console.log("New Lat Lng" + newLatLng[0]);
+            console.log("New Lat Lng", newLatLng);
             peopleLocation.push(newLatLng);
-            console.log("People Location: " + peopleLocation);
+            console.log(peopleLocation);
         }
         function showError(error) {
             console.log(error)
@@ -172,25 +154,23 @@ $(document).ready(function () {
             }
         }
         getLocation();
-        
-        setTimeout(function () {
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "mikedandan2@gmail.com",
-                Password: "259229f0-3e5b-4da2-b869-c6009ef1a5ea",
-                To: ['mikedandan2@gmail.com', 'webseoinc@gmail.com'],
-                From: "mikedandan2@gmail.com",
-                Subject: "IT WORKS!!",
-                Body: "We can now email!"
-            }).then(
-                message => alert(message)
-            );
-        }, 2000);
-        setTimeout(function () { window.location.assign("./waiting.html?key=" + key); }, 3000);
-        // console.log(key);
-        // window.location.assign("./waiting.html?key=" + key);
-    });
 
+
+        // copy link to clipboard
+        // var link = ("./recipientWaiting.html?key=" + key);
+        // function linkToClipboard() {
+        //     var copyText = "";
+        //     console.log(copyText);
+        //     copyText.value = link;
+        //     copyText.select();
+        //     document.execCommand("copy");
+        //     alert("Copied the text: " + copyText.value);
+        // }
+        // linkToClipboard();
+        setTimeout(function () {
+            window.location.assign("./waiting.html?key=" + key);
+        }, 2000)
+    });
     $("#newRecipient").on("click", function (event) {
         event.preventDefault();
 
@@ -203,12 +183,12 @@ $(document).ready(function () {
             $(this).addClass("grey");
             var newPersonName = $("#inputRecipientName").val();
 
-            var newNameDiv = $("<div class='col s4 m4 l4'>");
-            var newName = $("<h4 class='present'>").text(newPersonName);
+            // var newNameDiv = $("<div class='col s3 m3 l3'>");
+            // var newName = $("<h4 class='present'>").text(newPersonName);
 
-            newNameDiv.append(newName);
+            // newNameDiv.append(newName);
 
-            allPeople.push(newPersonName);
+            // allPeople.push(newPersonName);
 
             var href = window.location.href;
 
@@ -231,7 +211,7 @@ $(document).ready(function () {
                     });
 
                     // for (var i = 0; i < val.length; i++) {
-                    //     var newNameDiv = $("<div class='col s12 m3 l3'>");
+                    //     var newNameDiv = $("<div class='col s3 m3 l3'>");
                     //     var newName = $("<h4 class='present'>").html(allPeople[i]);
                     //     newNameDiv.append(newName);
                     //     $(".addPresent").append(newNameDiv); //add input box
@@ -264,12 +244,21 @@ $(document).ready(function () {
         console.log(val);
 
         for (var i = 0; i < val.length; i++) {
-            var newNameDiv = $("<div class='col s12 m6 l6'>");
+            var newNameDiv = $("<div class='col s4 m4 l4'>");
             var newName = $("<h4 class='present'>").html(val[i]);
             newNameDiv.append(newName);
             $(".addPresent").append(newNameDiv);
         }    //add input box
 
+        var recipientMapLink = "";
+
+        if (!recipientMapLink == "") {
+            console.log("link is here")
+        } else {
+            console.log("no link yet")
+        }
     });
 
+    
 });
+
