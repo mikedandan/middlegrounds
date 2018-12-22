@@ -122,19 +122,20 @@ $(document).ready(function () {
         getLocation();
         console.log("People Location(after): ", peopleLocation);
 
-        setTimeout(function () {
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "mikedandan2@gmail.com",
-                Password: "259229f0-3e5b-4da2-b869-c6009ef1a5ea",
-                To: ['mikedandan2@gmail.com', 'webseoinc@gmail.com'],
-                From: "mikedandan2@gmail.com",
-                Subject: "IT WORKS!!",
-                Body: "We can now email!"
-            }).then(
-                message => alert(message)
-            );
-        }, 2000);
+        // setTimeout(function () {
+        //     Email.send({
+        //         Host: "smtp.elasticemail.com",
+        //         Username: "mikedandan2@gmail.com",
+        //         Password: "259229f0-3e5b-4da2-b869-c6009ef1a5ea",
+        //         To: ['mikedandan2@gmail.com', 'webseoinc@gmail.com'],
+        //         From: "mikedandan2@gmail.com",
+        //         Subject: "IT WORKS!!",
+        //         Body: "We can now email!"
+        //     }).then(
+        //         message => alert(message)
+        //     );
+        // }, 2000);
+
         setTimeout(function () { window.location.assign("./waiting.html?key=" + key); }, 3000);
 
     });
@@ -210,13 +211,13 @@ $(document).ready(function () {
 
     //=======================================================================
     // This button grabs the selected destination and adds it to the database which should populate on all other screens
-    $(document).on("click", ".mapLink", function (e) {
-        e.preventDefault();
-        var newLocation = $(this).attr(href);
-        database.ref(key).set({
-            meetUpLink: meetUpLink
-        });
-    });
+    // $(document).on("click", ".mapLink", function (e) {
+    //     e.preventDefault();
+    //     var newLocation = $(this).attr(href);
+    //     database.ref(key).set({
+    //         meetUpLink: meetUpLink
+    //     });
+    // });
 
     //=========================================================================
     // This series of functions gathers the Latitude and Longitude of the user

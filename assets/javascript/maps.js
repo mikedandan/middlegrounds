@@ -11,7 +11,12 @@ var peopleLocation = [
     {
         lat: 34.0522,
         lng: -118.2437
-    }];
+    },
+    {
+        lat: 33.6595,
+        lng: -117.998
+    }
+];
 var keywords = ["restaurant"];
 var map;
 var infowindow;
